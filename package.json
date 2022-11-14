@@ -20,13 +20,10 @@
     "webpack-dev-server": "^4.11.1"
   },
   "version": "1.0.0",
-  "description": "My webpack project",
-  "name": "my-webpack-project",
+  "description": "ar project",
+  "name": "ar-project",
   "scripts": {
-    "build": "webpack --mode=production --node-env=production",
-    "build:dev": "webpack --mode=development",
-    "build:prod": "webpack --mode=production --node-env=production",
-    "watch": "webpack --watch",
-    "serve": "webpack serve"
+    "prod": "webpack --mode=production --node-env=production",
+    "start": "webpack serve"
   }
 }
