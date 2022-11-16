@@ -1,11 +1,9 @@
-import React from "react";
+import React, {FunctionComponent} from 'react';
 
-export default class App extends React.Component {
-  render() {
-    return (
-      <>
-        React App
-      </>
-    );
-  }
-}
+export const App:FunctionComponent = () => {
+  return (
+    <>
+      App
+    </>
+  );
+};
