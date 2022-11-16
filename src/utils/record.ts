@@ -15,7 +15,7 @@ export default class Record {
   }
 
   /**
-   * Method for start record
+   * Method for start service
    * @return Promise<Blob>
    */
   async startService(HTMLVideoElement: HTMLVideoElement): Promise<Blob | void> {
