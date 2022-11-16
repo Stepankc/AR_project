@@ -1,5 +1,8 @@
-import React from "react";
-import { render } from "react-dom";
+import React, { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
 import { App } from "./app";
+import "./webvitals";
 
-render(<App />, document.querySelector("#app"));
+createRoot(document.querySelector("#app")).render(
+  <StrictMode children={<App />} />
+);
