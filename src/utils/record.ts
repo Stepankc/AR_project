@@ -1,7 +1,7 @@
 export default class Record {
-  private stream: MediaStream | null;
+  private stream: MediaStream;
   constructor() {
-    this.stream = null;
+    this.stream;
   }
 
   /**
@@ -47,9 +47,7 @@ export default class Record {
    * @return void
    */
   stop(): void {
-    if (this.stream) {
-      this.stream.getTracks().forEach((t) => t.stop());
-    }
+    this.stream.getTracks().forEach((track: MediaStreamTrack) => track.stop());
   }
 
   /**
@@ -59,47 +57,42 @@ export default class Record {
   async startVideo(HTMLVideoElement: HTMLVideoElement): Promise<Blob> {
     return new Promise((resolve, reject) => {
       /**
-       * Prefire check
+       * Initialize MediaRecorder
+       * Tempory dataavailable storage
        */
-      if (this.stream) {
-        /**
-         * Initialize MediaRecorder
-         * Tempory dataavailable storage
-         */
-        const media = new MediaRecorder(this.stream);
-        const tmp: Blob[] = [];
+      const media = new MediaRecorder(this.stream);
+      const tmp: Blob[] = [];
 
-        /**
-         * Update tempory storage
-         */
-        media.addEventListener("dataavailable", ({ data }: BlobEventInit) =>
-          tmp.push(data)
-        );
+      /**
+       * Update tempory storage
+       */
+      media.addEventListener("dataavailable", ({ data }: BlobEventInit) =>
+        tmp.push(data)
+      );
 
-        /**
-         * Added handlers
-         */
-        new Promise((resolve, reject) => {
-          media.addEventListener("stop", resolve);
-          media.addEventListener("error", reject);
-        })
-          .then(() => {
-            /**
-             * Get payload after stop record
-             */
-            return resolve(new Blob(tmp, { type: "video/mp4" }));
-          })
+      /**
+       * Added handlers
+       */
+      new Promise((resolve, reject) => {
+        media.addEventListener("stop", resolve);
+        media.addEventListener("error", reject);
+      })
+        .then(() => {
           /**
-           * @return Uknown Exception
+           * Get payload after stop record
            */
-          .catch((e) => reject(e));
-
+          return resolve(new Blob(tmp, { type: "video/mp4" }));
+        })
         /**
-         * Start up
+         * @return Uknown Exception
          */
-        media.start();
-        HTMLVideoElement.srcObject = this.stream;
-      }
+        .catch((e: Error) => reject(e));
+
+      /**
+       * Start recording
+       */
+      media.start();
+      HTMLVideoElement.srcObject = this.stream;
     });
   }
 }
