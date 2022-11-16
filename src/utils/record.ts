@@ -66,23 +66,17 @@ export default class Record {
       /**
        * Update tempory storage
        */
-      media.addEventListener("dataavailable", ({ data }: BlobEventInit) =>
-        tmp.push(data)
-      );
+      media.ondataavailable = ({ data }: BlobEventInit) => tmp.push(data);
 
       /**
        * Get payload after stop record
        */
-      media.addEventListener("stop", () =>
-        resolve(new Blob(tmp, { type: "video/mp4" }))
-      );
+      media.onstop = () => resolve(new Blob(tmp, { type: "video/mp4" }));
 
       /**
        * @return MediaRecorderErrorEvent Exception
        */
-      media.addEventListener("error", (e: MediaRecorderErrorEvent) =>
-        reject(e)
-      );
+      media.onerror = (e: MediaRecorderErrorEvent) => reject(e);
 
       /**
        * Start recording
