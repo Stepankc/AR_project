@@ -24,6 +24,6 @@
   "name": "ar-project",
   "scripts": {
     "prod": "webpack --mode=production --node-env=production",
-    "start": "webpack serve"
+    "dev": "webpack serve --mode=development --node-env=development"
   }
 }
