@@ -18,7 +18,7 @@ export default class Record {
    * Method for start record
    * @return Promise<Blob>
    */
-  async start(HTMLVideoElement: HTMLVideoElement): Promise<Blob | void> {
+  async startService(HTMLVideoElement: HTMLVideoElement): Promise<Blob | void> {
     /**
      * Check video input
      */
@@ -34,7 +34,7 @@ export default class Record {
       /**
        * @return video stream
        */
-      return await this.startVideo(HTMLVideoElement);
+      return await this.startRecord(HTMLVideoElement);
     }
     /**
      * @return Video Input Exception
@@ -43,18 +43,10 @@ export default class Record {
   }
 
   /**
-   * Method for stop record
-   * @return void
-   */
-  stop(): void {
-    this.stream.getTracks().forEach((track: MediaStreamTrack) => track.stop());
-  }
-
-  /**
    * Method for start video
    * @return Promise<Blob>
    */
-  async startVideo(HTMLVideoElement: HTMLVideoElement): Promise<Blob> {
+  async startRecord(HTMLVideoElement: HTMLVideoElement): Promise<Blob> {
     return new Promise((resolve, reject) => {
       /**
        * Initialize MediaRecorder
@@ -84,5 +76,13 @@ export default class Record {
       media.start();
       HTMLVideoElement.srcObject = this.stream;
     });
+  }
+
+  /**
+   * Method for stop record
+   * @return void
+   */
+  stopRecord(): void {
+    this.stream.getTracks().forEach((track: MediaStreamTrack) => track.stop());
   }
 }
