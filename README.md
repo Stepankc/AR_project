@@ -1,1 +1,9 @@
-yarn build
+### Production
+```
+yarn prod
+```
+
+### Development
+```
+yarn dev
+```
