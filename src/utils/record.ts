@@ -71,22 +71,18 @@ export default class Record {
       );
 
       /**
-       * Added handlers
+       * Get payload after stop record
        */
-      new Promise((resolve, reject) => {
-        media.addEventListener("stop", resolve);
-        media.addEventListener("error", reject);
-      })
-        .then(() => {
-          /**
-           * Get payload after stop record
-           */
-          return resolve(new Blob(tmp, { type: "video/mp4" }));
-        })
-        /**
-         * @return Uknown Exception
-         */
-        .catch((e: Error) => reject(e));
+      media.addEventListener("stop", () =>
+        resolve(new Blob(tmp, { type: "video/mp4" }))
+      );
+
+      /**
+       * @return MediaRecorderErrorEvent Exception
+       */
+      media.addEventListener("error", (e: MediaRecorderErrorEvent) =>
+        reject(e)
+      );
 
       /**
        * Start recording
