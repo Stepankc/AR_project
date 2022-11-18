@@ -1,4 +1,4 @@
-export default class Record {
+class Record {
   private stream: MediaStream;
   constructor() {
     this.stream;
@@ -8,7 +8,7 @@ export default class Record {
    * Method for check video device
    * @return boolean
    */
-  async hasVideoInput() {
+  private async hasVideoInput() {
     return (await navigator.mediaDevices.enumerateDevices()).some(
       (device) => device.kind === "videoinput"
     );
@@ -46,7 +46,7 @@ export default class Record {
    * Method for start video
    * @return Promise<Blob>
    */
-  async startRecord(HTMLVideoElement: HTMLVideoElement): Promise<Blob> {
+  private async startRecord(HTMLVideoElement: HTMLVideoElement): Promise<Blob> {
     return new Promise((resolve, reject) => {
       /**
        * Initialize MediaRecorder
@@ -82,7 +82,11 @@ export default class Record {
    * Method for stop record
    * @return void
    */
-  stopRecord(): void {
-    this.stream.getTracks().forEach((track: MediaStreamTrack) => track.stop());
+  stopService(): void {
+    this.stream
+      .getVideoTracks()
+      .forEach((track: MediaStreamTrack) => track.stop());
   }
 }
+
+export default new Record();
