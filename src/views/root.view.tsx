@@ -6,7 +6,7 @@ export const RootView: FunctionComponent = () => {
   const ref = useRef<HTMLVideoElement>();
 
   useEffect(() => {
-    Record.startService(ref.current);
+    Record.startService(ref.current!);
   }, []);
 
   return (
