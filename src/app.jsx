@@ -2,6 +2,7 @@ import { ARCanvas, ARMarker } from "@artcom/react-three-arjs";
 import React from "react";
 import "./ui/normalize.scss";
 import "./ui/reset.scss";
+import  {Dino} from "./models/Dino"
 
 import { Provider } from "react-redux";
 import { store } from "./store/store";
@@ -29,10 +30,7 @@ const App = () => (
         patternUrl={"data/hero.patt"}
         params={{ smooth: true }}
       >
-        <mesh>
-          <boxBufferGeometry args={[1, 1, 1]} />
-          <meshStandardMaterial color={"green"} />
-        </mesh>
+        <Dino/>
       </ARMarker>
     </ARCanvas>
     ,
