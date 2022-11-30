@@ -8,7 +8,7 @@ yarn prod
 yarn dev
 ```
 
-### Технологии
+### Technology
 
 Runtime
 ```ssh
@@ -65,6 +65,3 @@ Dependencies
 "@types/react-redux": "^7.1.24"
 "autoprefixer": "^10.4.13"
 ```
-   
-
-  
