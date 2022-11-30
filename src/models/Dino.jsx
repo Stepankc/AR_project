@@ -24,7 +24,7 @@ const DinoModel = () => {
 export const Dino = () => (
   <ARMarker
     type={"pattern"}
-    patternUrl={"data/hero.patt"}
+    patternUrl={"data/pattern-cube.ar.mark.patt"}
     params={{ smooth: true }}
   >
     <DinoModel />
