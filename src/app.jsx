@@ -1,8 +1,7 @@
 import { ARCanvas } from "@artcom/react-three-arjs";
 import React from "react";
 import "./ui/reset.scss";
-import { Dino } from "./models/Dino";
-import { Knight } from "./models/Knight"
+import { Dino, Knight } from "./models/export";
 
 import { Provider } from "react-redux";
 import { store } from "./store/store";
