@@ -3,7 +3,7 @@ import { ARMarker } from "@artcom/react-three-arjs";
 import { useGLTF } from "@react-three/drei";
 
 const DinoModel = () => {
-  const { nodes, materials } = useGLTF("/dino.gltf");
+  const { nodes, materials } = useGLTF("models/dino/dino.gltf");
   return (
     <group scale={0.5} dispose={null}>
       <group name="Sketchfab_Scene">
@@ -31,4 +31,4 @@ export const Dino = () => (
   </ARMarker>
 );
 
-useGLTF.preload("/dino.gltf");
+useGLTF.preload("models/dino/dino.gltf");
