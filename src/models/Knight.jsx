@@ -139,7 +139,7 @@ const KnightModel = (props) => {
 export const Knight = () => (
   <ARMarker
     type={"pattern"}
-    patternUrl={"data/pattern-cpu.ar.mark.patt"}
+    patternUrl={"data/knight/pattern.patt"}
     params={{ smooth: true }}
   >
     <KnightModel />
