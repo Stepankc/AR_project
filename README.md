@@ -12,6 +12,7 @@ yarn dev
 
 Runtime
 ```ssh
+"core-js": "^3.26.1"
 "@babel/core": "^7.20.5"
 "@babel/preset-env": "^7.20.2"
 "@babel/preset-react": "^7.18.6"
@@ -19,20 +20,19 @@ Runtime
 "webpack-dev-server": "^4.11.1"
 "@webpack-cli/generators": "^2.5.0"
 "webpack-cli": "^4.10.0"
+"html-webpack-plugin": "^5.5.0"
+"copy-webpack-plugin": "^11.0.0"
+"mini-css-extract-plugin": "^2.6.1"
 ```
 
 Core loaders
 ```ssh
-"core-js": "^3.26.1"
 "babel-loader": "^9.1.0"
 "css-loader": "^6.7.2"
 "postcss-loader": "^7.0.1"
 "sass-loader": "^13.2.0"
 "style-loader": "^3.3.1"
 "ts-loader": "^9.4.1"
-"html-webpack-plugin": "^5.5.0"
-"copy-webpack-plugin": "^11.0.0"
-"mini-css-extract-plugin": "^2.6.1"
 ```
 
 AR
