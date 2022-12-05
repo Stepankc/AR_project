@@ -6,6 +6,7 @@ import { Dino, Knight } from "./models/export";
 
 import { Provider } from "react-redux";
 import { store } from "./store/store";
+import { Perf } from "r3f-perf";
 
 const App = () => (
   <ARCanvas
@@ -20,8 +21,9 @@ const App = () => (
       gl.setSize(window.innerWidth, window.innerHeight);
     }}
   >
-    <ambientLight />
-    <pointLight position={[10, 10, 0]} intensity={10.0} />
+    <Perf position="top-left"/>
+    <directionalLight castShadow position={[1,2,3]} />
+    <ambientLight intensity={1.5} />
     <Dino />
     <Knight />
   </ARCanvas>
