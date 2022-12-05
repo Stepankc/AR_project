@@ -13,8 +13,8 @@ const KnightModel = (props) => {
   });
 
   return (
-    <mesh onClick={() => actions.SwordAndShieldDeath_2.play()}>
-      <group ref={group} {...props} dispose={null}>
+    <mesh onClick={() => actions.SwordAndShieldDeath_2.play()} receiveShadow >
+      <group ref={group} {...props} scale={1.5} dispose={null}>
         <group name="Sketchfab_Scene">
           <group
             name="Sketchfab_model"
