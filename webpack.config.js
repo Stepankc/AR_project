@@ -64,6 +64,13 @@ const config = {
   },
   resolve: {
     extensions: [".tsx", ".ts", ".jsx", ".js", ".scss", "..."],
+    alias: {
+      "@": path.resolve(__dirname, "src"),
+      "@public": path.resolve(__dirname, "public"),
+      "@models": path.resolve(__dirname, "src/models"),
+      "@hooks": path.resolve(__dirname, "src/hooks"),
+      "@store": path.resolve(__dirname, "src/store"),
+    }
   },
 };
 
