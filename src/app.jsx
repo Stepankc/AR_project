@@ -2,10 +2,10 @@ import React from "react";
 import "./ui/reset.scss";
 
 import { ARCanvas } from "@artcom/react-three-arjs";
-import { Dino, Knight } from "./models/export";
+import { Dino, Knight } from "@models/export";
 
 import { Provider } from "react-redux";
-import { store } from "./store/store";
+import { store } from "@store/store";
 import { Perf } from "r3f-perf";
 
 const App = () => (
