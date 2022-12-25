@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React from "react";
 import "./ui/reset.scss";
 
 import { ARCanvas } from "@artcom/react-three-arjs";
@@ -8,7 +8,6 @@ import { Provider } from "react-redux";
 import { store } from "@store/store";
 import { Perf } from "r3f-perf";
 import { events } from "@react-three/fiber"
-import { Html, useProgress } from '@react-three/drei'
 
 const eventManagerFactory = state => ({
   ...events(state),
@@ -21,11 +20,6 @@ const eventManagerFactory = state => ({
     state.raycaster.setFromCamera(state.pointer, state.camera)
   },
 })
-
-function Loader() {
-  const { progress } = useProgress()
-  return <Html center>{progress} % loaded</Html>
-}
 
 const App = () => (
   <ARCanvas
@@ -45,11 +39,9 @@ const App = () => (
     <Perf position="top-left" />
     <directionalLight castShadow position={[1, 2, 3]} />
     <ambientLight intensity={1.5} />
-    <Suspense fallback={<Loader />}>
-      <Dino />
-      {/* <Cube /> */}
-      <Cooler />
-    </Suspense>
+    <Dino />
+    {/* <Cube /> */}
+    <Cooler />
   </ARCanvas>
 );
 
