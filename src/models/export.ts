@@ -1,2 +1,2 @@
 export * from "./Dino";
-export * from "./Knight";
+export * from "./Cube";
