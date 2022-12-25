@@ -2,7 +2,7 @@ import React, { Suspense } from "react";
 import "./ui/reset.scss";
 
 import { ARCanvas } from "@artcom/react-three-arjs";
-import { Dino, Cube } from "@models/export";
+import { Dino, Cube, Cooler } from "@models/export";
 
 import { Provider } from "react-redux";
 import { store } from "@store/store";
@@ -47,7 +47,8 @@ const App = () => (
     <ambientLight intensity={1.5} />
     <Suspense fallback={<Loader />}>
       <Dino />
-      <Cube />
+      {/* <Cube /> */}
+      <Cooler />
     </Suspense>
   </ARCanvas>
 );
