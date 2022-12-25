@@ -1,6 +1,5 @@
 import React, { useRef } from "react";
 import { ARMarker } from "@artcom/react-three-arjs";
-import { useGLTF } from "@react-three/drei";
 
 const CubeModel = () => {
   const cube = useRef()
@@ -23,11 +22,9 @@ const CubeModel = () => {
 export const Cube = () => (
   <ARMarker
     type={"pattern"}
-    patternUrl={"data/knight/pattern.patt"}
+    patternUrl={"data/Cube/pattern.patt"}
     params={{ smooth: true }}
   >
     <CubeModel />
   </ARMarker>
 );
-
-useGLTF.preload("models/knight/knight.gltf");
