@@ -1,2 +1,3 @@
 export * from "./Dino";
-export * from "./Knight";
+export * from "./Cube";
+export * from "./Cooler";
